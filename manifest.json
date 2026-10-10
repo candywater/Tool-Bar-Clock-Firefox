@@ -11,6 +11,11 @@
     "storage",
     "alarms"
   ],
+  "data_collection_permissions": {
+    "required": [
+      "none"
+    ]
+  },
   "browser_action": {
     "default_title": "Tool Bar Clock",
     "default_popup": "popup.html"

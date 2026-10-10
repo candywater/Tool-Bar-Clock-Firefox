@@ -43,3 +43,8 @@ zip tool-bar-clock.zip \
 
 生成的 `tool-bar-clock.zip` 即为扩展安装包。该 ZIP 文件已在
 `.gitignore` 中忽略。
+
+## 数据收集
+
+本扩展不会收集或传输用户数据。manifest 中已声明
+`data_collection_permissions.required` 为 `["none"]`。

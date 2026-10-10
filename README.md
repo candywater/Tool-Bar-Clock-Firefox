@@ -41,3 +41,8 @@ zip tool-bar-clock.zip \
 
 The generated `tool-bar-clock.zip` can be used as the extension package. The
 ZIP file is ignored by `.gitignore`.
+
+## Data collection
+
+This extension does not collect or transmit user data. The manifest declares
+`data_collection_permissions.required` as `["none"]`.
