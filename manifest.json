@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Tool Bar Clock",
+  "version": "1.0",
+  "description": "Display a clock on the toolbar. Forked from the Tool Bar Clock Firefox add-on.",
+  "homepage_url": "https://addons.mozilla.org/en-US/firefox/addon/tool-bar-clock/versions/",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "browser_action": {
+    "default_title": "Tool Bar Clock",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "applications": {
+    "gecko": {
+      "id": "tool-bar-clock@example.com"
+    }
+  }
+}

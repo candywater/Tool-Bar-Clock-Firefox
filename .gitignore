@@ -1,0 +1,22 @@
+# Generated extension packages
+*.zip
+*.xpi
+
+# macOS
+.DS_Store
+
+# Editor and IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# JavaScript dependencies and tooling output
+node_modules/
+coverage/
+dist/
+build/
+
+# Local environment files
+.env
+.env.*

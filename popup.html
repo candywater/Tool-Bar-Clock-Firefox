@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<!-- SPDX-License-Identifier: MPL-2.0 -->
+<head>
+    <meta charset="utf-8">
+    <title>Time Zone Selector</title>
+    <style>
+        body { 
+            width: 280px; 
+            font-family: sans-serif;
+            padding: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        select { 
+            width: 100%; 
+            padding: 5px; 
+            margin-top: 5px; 
+            margin-bottom: 10px;
+            box-sizing: border-box; 
+        }
+        h4 { 
+            margin-top: 10px;
+            margin-bottom: 5px; 
+            font-size: 14px;
+        }
+        h4:first-of-type {
+            margin-top: 0;
+        }
+    
+        #status {
+            font-size: 12px;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h4>Time Zone</h4>
+    <input id="timezoneFilter" type="text" placeholder="Filter time zones..." />
+    <select id="timezoneOffset">
+    </select>
+    
+    <h4>Font Color</h4>
+    <select id="iconColorSelector">
+        <option value="#FFFFFF">⚪ White</option>
+        <option value="#000000">⚫ Black</option>
+    </select>
+    
+    <p id="status"></p>
+
+    <script src="popup.js"></script>
+</body>
+</html>
