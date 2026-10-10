@@ -2,6 +2,13 @@
 
 Firefox extension that displays a clock on the toolbar.
 
+## Features
+
+- Supports all time zones available through the browser's IANA time zone data.
+- Filters time zones with an input box.
+- Defaults to the browser's local time zone.
+- Saves the selected time zone and displays it in the toolbar clock.
+
 This project is forked from the Firefox Add-ons version history for Tool Bar
 Clock:
 
@@ -17,3 +24,5 @@ Source files in this project include an SPDX license identifier:
 ```text
 SPDX-License-Identifier: MPL-2.0
 ```
+
+For Chinese documentation, see [README.zh-CN.md](./README.zh-CN.md).
