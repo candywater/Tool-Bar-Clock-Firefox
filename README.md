@@ -14,6 +14,10 @@ Clock:
 
 <https://addons.mozilla.org/en-US/firefox/addon/tool-bar-clock/versions/>
 
+The forked extension page is available at:
+
+<https://addons.mozilla.org/en-US/firefox/addon/tool-bar-clock-fork-version/>
+
 ## License
 
 This fork is distributed under the Mozilla Public License Version 2.0

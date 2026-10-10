@@ -16,6 +16,10 @@
 
 <https://addons.mozilla.org/en-US/firefox/addon/tool-bar-clock/versions/>
 
+本 fork 版本的 Firefox Add-ons 页面：
+
+<https://addons.mozilla.org/en-US/firefox/addon/tool-bar-clock-fork-version/>
+
 ## 许可证
 
 本 fork 遵循 Mozilla Public License Version 2.0（MPL-2.0）发布。
