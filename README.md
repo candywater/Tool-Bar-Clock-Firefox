@@ -26,3 +26,18 @@ SPDX-License-Identifier: MPL-2.0
 ```
 
 For Chinese documentation, see [README.zh-CN.md](./README.zh-CN.md).
+
+## Packaging
+
+From the project directory, run:
+
+```sh
+rm -f tool-bar-clock.zip
+zip tool-bar-clock.zip \
+  LICENSE README.md README.zh-CN.md \
+  background.js icon.png manifest.json \
+  options.html options.js popup.html popup.js
+```
+
+The generated `tool-bar-clock.zip` can be used as the extension package. The
+ZIP file is ignored by `.gitignore`.

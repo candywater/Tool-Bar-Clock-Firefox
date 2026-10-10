@@ -28,3 +28,18 @@ SPDX-License-Identifier: MPL-2.0
 ```
 
 英文说明请参阅 [README.md](./README.md)。
+
+## 打包
+
+在项目目录中执行以下命令：
+
+```sh
+rm -f tool-bar-clock.zip
+zip tool-bar-clock.zip \
+  LICENSE README.md README.zh-CN.md \
+  background.js icon.png manifest.json \
+  options.html options.js popup.html popup.js
+```
+
+生成的 `tool-bar-clock.zip` 即为扩展安装包。该 ZIP 文件已在
+`.gitignore` 中忽略。
