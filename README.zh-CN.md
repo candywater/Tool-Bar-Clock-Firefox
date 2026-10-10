@@ -47,4 +47,5 @@ zip tool-bar-clock.zip \
 ## 数据收集
 
 本扩展不会收集或传输用户数据。manifest 中已声明
-`data_collection_permissions.required` 为 `["none"]`。
+`browser_specific_settings.gecko.data_collection_permissions.required` 为
+`["none"]`。

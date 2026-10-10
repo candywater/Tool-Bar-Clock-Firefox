@@ -45,4 +45,5 @@ ZIP file is ignored by `.gitignore`.
 ## Data collection
 
 This extension does not collect or transmit user data. The manifest declares
-`data_collection_permissions.required` as `["none"]`.
+`browser_specific_settings.gecko.data_collection_permissions.required` as
+`["none"]`.
