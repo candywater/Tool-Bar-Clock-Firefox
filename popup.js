@@ -67,11 +67,12 @@ function renderTimezoneOptions(selector, allTimezones, filterValue, selectedTime
     }
 }
 
-function saveSettings(timeZone, color) {
+function saveSettings(timeZone, color, autoTheme) {
     // 選択された時区と色を保存
     browser.storage.sync.set({ 
         timeZone: timeZone,
-        iconColor: color
+        iconColor: color,
+        autoTheme: autoTheme
     }).then(() => {
         // 保存メッセージ表示
         const status = document.getElementById('status');
@@ -87,12 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const selector = document.getElementById('timezoneOffset');
     const filterInput = document.getElementById('timezoneFilter');
     const colorSelector = document.getElementById('iconColorSelector');
+    const autoThemeSelector = document.getElementById('autoThemeSelector');
     const allTimezones = getAllTimezones();
     const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     let currentSelectedTimeZone = localTimeZone;
 
     // 保存された設定を読み込み、選択状態を復元
-    browser.storage.sync.get(['timeZone', 'iconColor']).then(data => {
+    browser.storage.sync.get(['timeZone', 'iconColor', 'autoTheme']).then(data => {
         // default: Local Time Zone
         const savedTimeZone = allTimezones.includes(data.timeZone) ? data.timeZone : localTimeZone;
         currentSelectedTimeZone = savedTimeZone;
@@ -101,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const savedColor = data.iconColor ?? '#FFFFFF';
         colorSelector.value = savedColor.toString();
+        autoThemeSelector.checked = data.autoTheme !== false;
+        colorSelector.disabled = autoThemeSelector.checked;
     });
 
     filterInput.addEventListener('input', () => {
@@ -115,12 +119,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         currentSelectedTimeZone = timeZone;
         const color = colorSelector.value;
-        saveSettings(timeZone, color);
+        saveSettings(timeZone, color, autoThemeSelector.checked);
     });
     // 変更されたら設定を保存する
     colorSelector.addEventListener('change', () => {
         const timeZone = selector.value || currentSelectedTimeZone;
         const color = colorSelector.value;
-        saveSettings(timeZone, color);
+        saveSettings(timeZone, color, autoThemeSelector.checked);
+    });
+    autoThemeSelector.addEventListener('change', () => {
+        colorSelector.disabled = autoThemeSelector.checked;
+        const timeZone = selector.value || currentSelectedTimeZone;
+        saveSettings(timeZone, colorSelector.value, autoThemeSelector.checked);
     });
 });

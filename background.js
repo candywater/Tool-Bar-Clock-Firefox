@@ -53,11 +53,23 @@ function getOffsetTime(offsetHours) {
     return [ HH, MM ]; // [ "HH", "MM" ] の配列として返す
 }
 
+function getSystemThemeColor() {
+    if (typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: dark)').matches) {
+        return '#FFFFFF';
+    }
+
+    return '#000000';
+}
+
+function getActionApi() {
+    return browser.action || browser.browserAction;
+}
+
 
 // Canvasでアイコンに時間を描画し、アイコンを更新する関数
 function updateIcon() {
     // ユーザー設定（色、フォント、時区）をストレージからまとめて読み込む
-    browser.storage.sync.get(['iconColor', 'fontFamily', 'timeZone', 'offsetHours']).then(data => {
+    browser.storage.sync.get(['iconColor', 'fontFamily', 'timeZone', 'offsetHours', 'autoTheme']).then(data => {
 
         const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
         const selectedTimeZone = data.timeZone ?? localTimeZone;
@@ -76,7 +88,9 @@ function updateIcon() {
             [HH, MM] = formatCurrentTimeWithTimeZone(localTimeZone);
         }
 
-        const userColor = data.iconColor ?? '#FFFFFF'; 
+        const userColor = data.autoTheme !== false
+            ? getSystemThemeColor()
+            : (data.iconColor ?? '#FFFFFF');
         const userFont = data.fontFamily ?? 'sans-serif'; 
 
         const canvas = new OffscreenCanvas(ICON_SIZE, ICON_SIZE);
@@ -102,10 +116,11 @@ function updateIcon() {
 
         // アイコンの更新
         const imageData = ctx.getImageData(0, 0, ICON_SIZE, ICON_SIZE);
-        browser.browserAction.setIcon({ imageData: imageData });
+        const actionApi = getActionApi();
+        actionApi.setIcon({ imageData: imageData });
 
-        browser.browserAction.setBadgeText({ text: '' }); 
-        browser.browserAction.setBadgeBackgroundColor({ color: [0, 0, 0, 0] });
+        actionApi.setBadgeText({ text: '' }); 
+        actionApi.setBadgeBackgroundColor({ color: [0, 0, 0, 0] });
     }).catch(error => {
         console.error("Icon update failed:", error);
     });
@@ -116,6 +131,10 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         updateIcon();
     }
 });
+
+if (typeof matchMedia === 'function') {
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateIcon);
+}
 
 // 1秒ごとに時間を更新
 setInterval(updateIcon, 1000); 

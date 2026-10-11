@@ -8,6 +8,8 @@ Firefox extension that displays a clock on the toolbar.
 - Filters time zones with an input box.
 - Defaults to the browser's local time zone.
 - Saves the selected time zone and displays it in the toolbar clock.
+- Follows Firefox's light/dark mode for icon text color by default, with an
+  option to disable automatic theme colors and choose a manual color.
 
 This project is forked from the Firefox Add-ons version history for Tool Bar
 Clock:
