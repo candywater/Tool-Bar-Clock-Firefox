@@ -11,6 +11,10 @@
 - 支持自定义图标文字颜色和字体。
 - 默认跟随 Firefox 的日间/夜间模式切换图标文字颜色，也可以关闭自动模式并手动选择颜色。
 
+## 预览
+
+![Tool Bar Clock 预览](./doc/tool_bar_clock.jpeg)
+
 ## Fork 来源
 
 本项目 fork 自 Firefox Add-ons 上 Tool Bar Clock 的版本页面：

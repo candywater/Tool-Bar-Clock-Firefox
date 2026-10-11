@@ -11,6 +11,10 @@ Firefox extension that displays a clock on the toolbar.
 - Follows Firefox's light/dark mode for icon text color by default, with an
   option to disable automatic theme colors and choose a manual color.
 
+## Preview
+
+![Tool Bar Clock preview](./doc/tool_bar_clock.jpeg)
+
 This project is forked from the Firefox Add-ons version history for Tool Bar
 Clock:
 
